@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>下拉列表左右移动</title>
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/jquery-3.6.1.min.js"></script>
+</head>
+<style>
+    #leftName{
+        float: left;
+        margin-right: 50px;
+    }
+    #btn{
+        float: left;
+        margin-right: 50px;
+        padding-bottom: 50px;
+    }
+    #rightName{
+        float: left;
+    }
+    body{
+        align-items: center; /*设置东西在中间*/
+        font-size: 50px;
+    }
+</style>
+<script>
+    $(function () {
+       $("#toRight").click(function () {
+           //获取右边的下拉列表对象
+           $("#rightName").append($("#leftName > option:selected"));
+
+       }) ;
+       $("#toLeft").click(function (){
+           $("#rightName > option:selected").appendTo($("#leftName"));
+       });
+    });
+</script>
+<body>
+<div class="container">
+    <label for="leftName"></label><select id="leftName" multiple="multiple">
+    <option>张三</option>
+    <option>李四</option>
+    <option>王五</option>
+    <option>赵六</option>
+</select>
+    <div id="btn">
+        <input type="button" id="toRight" value="-->"><br>
+        <input type="button" id="toLeft" value="<--">
+    </div>
+    <label for="rightName"></label><select id="rightName" multiple="multiple">
+    <option>钱七</option>
+</select>
+</div>
+</body>
+</html>

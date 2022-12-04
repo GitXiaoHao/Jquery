@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件绑定</title>
+  <script src="../js/jquery-3.6.1.min.js"></script>
+  <script src="../js/jquery-migrate-1.2.1.min.js"></script>
+</head>
+<body>
+<input type="button" id="buttonId">
+<label for="name"></label><input type="text" id="name" value="绑定点击事件">
+<div id="div" style="width: 200px; height: 200px; background-color: pink">
+    点击按钮变成绿色 再点变成红色
+</div>
+<input id="switch" type="button" value="切换">
+</body>
+<script>
+  //入口函数  页面加载完成之后执行
+  $(function (){
+    //添加单击事件
+    //获取按钮
+
+    $("#buttonId").click(function () {
+      //css样式控制
+      $("#div1").css("background-color","red");
+      $("#div2").css("backgroundColor","red");
+    });
+    //鼠标移进 鼠标移出
+      var name = $("#name");
+      name.mouseover(function (){
+          alert("鼠标来了");
+      }).mouseout(function (){
+         alert("鼠标走了");
+      });
+      //on off
+      name.on("click",function (){
+          //解除mouseover的绑定事件
+          name.off("mouseover");
+      });
+      //toggle
+      $("#switch").toggle(function () {
+          //绿色
+          $("#div").css("backgroundColor","green");
+      },function () {
+          //红色
+          $("#div").css("backgroundColor", "red");
+      })
+
+  });
+  //window.onload 和 $(function(){}); 的区别
+  /*
+  window.onload 只能定义一次 会覆盖掉
+   $(function(){}); 可以定义多次
+   */
+
+
+</script>
+</html>

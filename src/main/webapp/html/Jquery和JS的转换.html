@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>与JS的转换</title>
+  <script src="../js/jquery-3.6.1.min.js"></script>
+</head>
+<body>
+<div id="div1">div1</div>
+<div id="div2">div2</div>
+</body>
+<script>
+  //通过js获取div的所有元素
+  //html Context
+  var divs = document.getElementsByName("div");
+  //通过jq的方式获取
+  //Object
+  var $divs = $("div");
+  //对所有的div标签体改为a
+  //JS
+  for (let i = 0; i < divs.length; i++) {
+    divs[i].innerHTML = "a";
+  }
+  //JQ
+  $divs.html("a");
+  //两者转换
+  //js -> JQ : $(js对象)
+  $(divs[0]).html("aaa");
+  //JQ -> js : jq对象[索引]  或者  jq对象.get(索引)
+  $divs[0].innerHTML = "bbbb";
+  $divs.get(1).innerHTML = "cccc";
+
+
+</script>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery动画</title>
+    <script src="../js/jquery-3.6.1.min.js"></script>
+</head>
+<script>
+    //隐藏
+    function hideFn(){
+        //默认方式
+        // $("#showDiv").hide("normal", "swing", function () {
+        //
+        // });
+        //滑动
+        // $("#showDiv").slideUp(5000, "swing", function () {
+        //
+        // });
+        //淡入 淡出
+        $("#showDiv").fadeOut(5000, "swing", function () {
+
+        });
+    }
+    //显示
+    function showFn(){
+        //默认方式
+        // $("#showDiv").show(5000,"swing",function (){
+        //
+        // });
+        //滑动
+        // $("#showDiv").slideDown("fast", "swing", function () {
+        //
+        // });
+        //淡入 淡出
+        $("#showDiv").fadeIn(5000, "swing", function () {
+
+        });
+    }
+    //显示 隐藏
+    function  toggleFn(){
+        //默认方式
+        // $("#showDiv").toggle("fast", "linear", function () {
+        //
+        // });
+        //滑动
+        // $("#showDiv").slideToggle(5000, "swing", function () {
+        //
+        // });
+        //淡入 淡出
+        $("#showDiv").fadeToggle(5000, "swing", function () {
+
+        });
+
+    }
+</script>
+<body>
+<input type="button" value="点击按钮隐藏div" onclick="hideFn()">
+<input type="button" value="点击按钮显示div" onclick="showFn()">
+<input type="button" value="点击按钮切换div显示和隐藏" onclick="toggleFn()">
+<div id="showDiv" style="width: 200px; height: 200px; background-color: pink;">
+    div显示和隐藏
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>遍历</title>
+    <script src="../js/jquery-3.6.1.min.js"></script>
+</head>
+<script>
+    $(function (){
+        const city = $("#city");
+        //jq对象.each(callback)
+       city.each(function (index,element){
+           //获取li方式 1
+           alert($(this).html());
+           //获取li方式 2 在函数中定义参数 index索引 element 元素对象
+           alert(index + " : " + $(element).html());
+           if("上海" === $(element).html()){
+               //结束循环
+               return false;
+           }
+       }) ;
+       //- $.each(object,[callback])
+        $.each(city, function (){
+
+        });
+        //- for..of 3.0版本之后
+        for (li of city){
+            alert($(li).html());
+        }
+    });
+</script>
+<body>
+<ul id="city">
+    <li>北京</li>
+    <li>上海</li>
+    <li>天津</li>
+    <li>重庆</li>
+</ul>
+</body>
+</html>
