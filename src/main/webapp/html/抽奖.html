@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>抽奖</title>
+  <script src="../js/jquery-3.6.1.min.js"></script>
+</head>
+<script>
+  /*
+  给开始按钮 绑定点击事件
+    小相框滚动 定时器 切换src
+  给停止按钮绑定点击事件
+   */
+  //图片数组
+  const images = ["../img/1.jpg",
+      "../img/2.jpg", "../img/3.jpg",
+      "../img/4.jpg", "../img/5.jpg"];
+  let startInterval
+  let index;
+  $(function () {
+      //处理按钮
+      var start = $("#start");
+      var stop = $("#stop");
+      //不可用
+      stop.prop("disabled",true);
+    //给开始按钮绑定
+    start.click(function () {
+        //不可用
+        start.prop("disabled", true);
+        stop.prop("disabled", false);
+      //定义循环定时器
+        startInterval = setInterval(function () {
+        //生成随机数 0-4
+        index = Math.floor(Math.random() * 5);
+        //设置src属性
+        $("#imgId1").prop("src",images[index]);
+      },50);
+    });
+    //暂停按钮
+      stop.click(function () {
+          stop.prop("disabled", true);
+          start.prop("disabled", false);
+          //停止
+          clearInterval(startInterval);
+          //给大相框设置
+          $("#imgId2").prop("src", images[index]).hide();
+          $("#imgId2").show(500);
+      });
+  });
+</script>
+<body>
+<!--小相框-->
+<div style="border-style: dotted;width: 160px;height: 100px">
+  <img src="../img/1.jpg" id="imgId1" style="width: 160px;height: 100px;" alt="...">
+</div>
+<!--大相框-->
+<div style="border-style: double;width: 800px;height: 500px; position: absolute;left: 500px;top: 10px">
+  <img src="../img/1.jpg" id="imgId2" style="width: 800px;height: 500px;" alt="...">
+</div>
+<!--开始按钮-->
+<input id="start" type="button" value="点击开始"
+  style="width: 150px; height: 150px; font-size: 22px;">
+<!--暂停按钮-->
+<input id="stop" type="button" value="点击暂停"
+       style="width: 150px; height: 150px; font-size: 22px;">
+
+</body>
+</html>

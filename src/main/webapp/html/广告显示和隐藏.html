@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>广告显示和隐藏</title>
+    <script src="../js/jquery-3.6.1.min.js"></script>
+</head>
+<script>
+    //setTimeout 执行一次定时器
+    $(function () {
+       //定时器
+       setTimeout(addShow,3000);
+       setTimeout(addHide,8000);
+    });
+    //使用 show hide
+    function addShow(){
+        $("#id").show("slow");
+    }
+    function addHide(){
+        $("#id").hide("slow");
+    }
+</script>
+<body>
+<div>
+    <div id="id" style="display: none">
+        <img style="width: 100%;" src="../img/1.jpg">
+    </div>
+    <div id="content">
+        正文
+    </div>
+</div>
+</body>
+</html>

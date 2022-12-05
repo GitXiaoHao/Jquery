@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>插件</title>
+    <script src="../js/jquery-3.6.1.min.js"></script>
+</head>
+<script>
+    //定义jq对象插件
+    $.fn.extend({
+        //定义一个check方法 所有jq对象都可以使用
+        check: function () {
+
+        },
+        //定义uncheck方法
+        uncheck: function () {
+
+        }
+    });
+
+    //全局方法
+    $.extend({
+        max: function (a, b) {
+            return Math.max(a, b);
+        }
+    });
+</script>
+
+<body>
+
+</body>
+</html>
